@@ -65,6 +65,8 @@ public class User {
         this.sex = sex;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -3,7 +3,7 @@ package servlets;
 import dao.DebatesDAO;
 import obj.Debates;
 import obj.User;
-import support.Helpers;
+import support.FreemarkerHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,6 @@ public class DebateListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        FreeMarkerConfigurator.getInstance(this);
         Map<String, Object> root = new HashMap<>();
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("current_user");
@@ -30,13 +29,11 @@ public class DebateListServlet extends HttpServlet {
             DebatesDAO debatesDAO = new DebatesDAO();
             ArrayList<Debates> debatesList = debatesDAO.getDebates();
             root.put("debates", debatesList);
-            resp.setContentType("text/html");
-            resp.setCharacterEncoding("utf-8");
             if (user != null) {
                 root.put("nickname", user.getNickname());
-                Helpers.render(req, resp, "debates-list-authorized.ftl", root);
+                FreemarkerHelper.render(req, resp, "debates-list-authorized.ftl", root);
             } else {
-                Helpers.render(req, resp, "debates-list-non-authorized.ftl", root);
+                FreemarkerHelper.render(req, resp, "debates-list-non-authorized.ftl", root);
             }
 
         } catch  (SQLException | ClassNotFoundException e) {

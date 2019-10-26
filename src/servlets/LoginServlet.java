@@ -2,7 +2,7 @@ package servlets;
 
 import dao.UserDAO;
 import obj.User;
-import support.Helpers;
+import support.FreemarkerHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,16 +20,13 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        FreeMarkerConfigurator.getInstance(this);
         Map<String, Object> root = new HashMap<>();
         HttpSession session = request.getSession();
-        response.setCharacterEncoding("utf-8");
         User user = (User) session.getAttribute("current_user");
         if (user != null) {
             response.sendRedirect("/news");
         } else {
-            response.setContentType("text/html");
-            Helpers.render(request, response, "login.ftl", root);
+            FreemarkerHelper.render(request, response, "login.ftl", root);
         }
     }
 
@@ -47,7 +44,7 @@ public class LoginServlet extends HttpServlet {
                 User curr = userDAO.validateUser(email, password);
                 if (curr != null) {
                     session.setAttribute("current_user", curr);
-                    response.sendRedirect("/news");
+                    response.sendRedirect("/newsList");
                 } else {
                     response.sendRedirect("/login");
                 }

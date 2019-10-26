@@ -7,14 +7,14 @@ public class News {
 
     private int id;
     private String header, text;
-    private File img;
+    private String img;
     private Date date;
 
     public News(int id, String header, String text, String imgPath, Date date) {
         this.id = id;
         this.header = header;
         this.text = text;
-        img = new File(imgPath);
+        img = imgPath;
         this.date = date;
     }
 
@@ -40,5 +40,26 @@ public class News {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getDate() {
+        return date.toString();
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getImgPath() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return id + "";
     }
 }
