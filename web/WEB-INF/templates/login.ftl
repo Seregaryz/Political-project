@@ -9,7 +9,7 @@
         <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
     <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <input type="submit" class="btn btn-primary">

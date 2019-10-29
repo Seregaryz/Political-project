@@ -1,9 +1,11 @@
 package servlets;
 
 import dao.NewsDAO;
+import dao.UserDAO;
 import obj.News;
 import obj.User;
 import support.FreemarkerHelper;
+import support.ServiceHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +36,12 @@ public class PostOfNewsServlet extends HttpServlet {
             resp.setContentType("text/html");
             resp.setCharacterEncoding("utf-8");
             if (user != null) {
+                root.put("nickname", user.getNickname());
+                FreemarkerHelper.render(req, resp, "news-page-authorized.ftl", root);
+            }else if (ServiceHelper.isSavedInCookies(req)) {
+                UserDAO userDAO = new UserDAO();
+                user = userDAO.getSpecUser((String) session.getAttribute("login"), (String) session.getAttribute("password"));
+                session.setAttribute("current_user", user);
                 root.put("nickname", user.getNickname());
                 FreemarkerHelper.render(req, resp, "news-page-authorized.ftl", root);
             } else {

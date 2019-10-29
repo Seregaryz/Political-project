@@ -6,28 +6,43 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11d6d338-5d68-4098-9edc-de49ab50f816" name="Default Changelist" comment="Add Freemarker templates">
-      <change afterPath="$PROJECT_DIR$/src/servlets/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlets/ProfileRedactionServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlets/ProfileServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/main-page-authorized.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/main-page-non-authorized.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/news-page-authorized.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/profile.ftl" afterDir="false" />
+    <list default="true" id="11d6d338-5d68-4098-9edc-de49ab50f816" name="Default Changelist" comment="Change FreemarkerHelper.java, add new finctions in servlets">
+      <change afterPath="$PROJECT_DIR$/src/servlets/OtherUserProfileServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/support/ServiceHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/news-page-non-authorized.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/profile-other-user.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/redaction-profile.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/img/example.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DebatesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DebatesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/NewsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/NewsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/DebateListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/DebateListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/DebateServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/DebateServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/LogoutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/LogoutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/MainPageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/MainPageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/PostOfNewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/PostOfNewsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/ProfileServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/ProfileServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/support/Helpers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/login.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/login.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/news-page-authorized.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/news-page-authorized.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/DebateListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/DebateListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/DebateServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/DebateServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/LogoutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/LogoutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/MainPageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/MainPageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/PostOfNewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/PostOfNewsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/ProfileServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/ProfileServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/support/Helpers.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/obj/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/News.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/obj/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/DebateListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/DebateListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/DebateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/DebateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/LogoutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/MainPageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/MainPageServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/PostOfNewsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/PostOfNewsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/support/Helpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/support/FreemarkerHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/ProfileRedactionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/ProfileRedactionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/ProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/ProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/login.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/login.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/news-page-authorized.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/news-page-authorized.ftl" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +109,37 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="comments: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="political_project_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="political_project_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="debates: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="political_project_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="political_project_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="news: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="political_project_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="political_project_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="users: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -143,7 +188,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CarProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -333,17 +378,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@aabdc7fe" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@aabdc7fe" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@12748804" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -366,7 +401,10 @@
       <workItem from="1571749264752" duration="6575000" />
       <workItem from="1571920737999" duration="17502000" />
       <workItem from="1571997066025" duration="5386000" />
-      <workItem from="1572081491299" duration="2917000" />
+      <workItem from="1572081491299" duration="4453000" />
+      <workItem from="1572166204808" duration="12733000" />
+      <workItem from="1572260063363" duration="1209000" />
+      <workItem from="1572338998463" duration="2456000" />
     </task>
     <task id="LOCAL-00001" summary="Add intermediate progress 24.10.2019">
       <created>1571921412879</created>
@@ -375,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571921412879</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Change FreemarkerHelper.java, add new finctions in servlets">
+      <created>1572113088441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572113088441</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,6 +441,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add intermediate progress 24.10.2019" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add intermediate progress 24.10.2019" />
+    <MESSAGE value="Change FreemarkerHelper.java, add new finctions in servlets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change FreemarkerHelper.java, add new finctions in servlets" />
   </component>
 </project>
