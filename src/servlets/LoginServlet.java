@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet {
                         session.setAttribute("current_user", curr);
                         if(remember!=null) {
                             Cookie emailCookie = new Cookie("login", email);
-                            Cookie passCookie = new Cookie("password", password);
+                            Cookie passCookie = new Cookie("password", ServiceHelper.md5Custom(password));
                             emailCookie.setMaxAge(60);
                             passCookie.setMaxAge(60);
                             response.addCookie(emailCookie);

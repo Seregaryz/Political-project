@@ -22,8 +22,8 @@ public class UserDAO extends DAO{
             ps.setString(2, codPass);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
-                return new User(rs.getInt("id"), rs.getString("email"), rs.getString("password"), rs.getString("nickname"),
-                        rs.getString("name"), rs.getString("surname"), rs.getString("sex"));
+                return new User(rs.getInt("id"), rs.getString("email"), ServiceHelper.md5Custom(rs.getString("password")), rs.getString("nickname"),
+                        rs.getString("name"), rs.getString("surname"), rs.getString("sex"), rs.getString("image_path"));
             } else return null;
         }
     }
@@ -36,15 +36,14 @@ public class UserDAO extends DAO{
                 "postgres",
                 "postgres"
         );
-        String codPass = ServiceHelper.md5Custom(password);
         String sql = "SELECT * FROM users WHERE email = ? and password = ?;";
         try(PreparedStatement ps = conn.prepareStatement(sql)){
             ps.setString(1, login);
-            ps.setString(2, codPass);
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 return new User(rs.getInt("id"), rs.getString("email"), rs.getString("password"), rs.getString("nickname"),
-                        rs.getString("name"), rs.getString("surname"), rs.getString("sex"));
+                        rs.getString("name"), rs.getString("surname"), rs.getString("sex"), rs.getString("image_path"));
             } else return null;
         }
     }
@@ -62,7 +61,7 @@ public class UserDAO extends DAO{
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 return new User(rs.getInt("id"), rs.getString("email"), rs.getString("password"), rs.getString("nickname"),
-                        rs.getString("name"), rs.getString("surname"), rs.getString("sex"));
+                        rs.getString("name"), rs.getString("surname"), rs.getString("sex"), rs.getString("image_path"));
             } else return null;
         }
     }
@@ -82,24 +81,47 @@ public class UserDAO extends DAO{
         }
     }
 
-    public boolean updateUser(int idOfUser, String pass, String nickname, String name, String surname, String sex) throws ClassNotFoundException, SQLException {
+    public boolean updateUser(int idOfUser, String pass, String nickname, String name, String surname, String sex, String photoPath) throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
         Connection conn = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/political_project_db",
                 "postgres",
                 "postgres"
         );
-        String sql = "UPDATE users SET password = ?, nickname = ?, name = ?, surname = ?, sex = ? WHERE id = ?";
+        String codPass = ServiceHelper.md5Custom(pass);
+        String sql = "UPDATE users SET password = ?, nickname = ?, name = ?, surname = ?, sex = ?, image_path = ? WHERE id = ?";
         try(PreparedStatement ps = conn.prepareStatement(sql)){
-            ps.setString(1, pass);
+            ps.setString(1, codPass);
             ps.setString(2, nickname);
             ps.setString(3, name);
             ps.setString(4, surname);
             ps.setString(5, sex);
-            ps.setInt(6, idOfUser);
-            ResultSet rs = ps.executeQuery();
+            ps.setString(6, photoPath);
+            ps.setInt(7, idOfUser);
+            ps.execute();
         }
         return true;
+    }
+
+    public void setUser(User u) throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        Connection conn = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/political_project_db",
+                "postgres",
+                "postgres"
+        );
+        String codPass = ServiceHelper.md5Custom(u.getPassword());
+        String sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, nextval('count'),?);";
+        try(PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1, u.getEmail());
+            ps.setString(2, codPass);
+            ps.setString(3, u.getNickname());
+            ps.setString(4, u.getUsername());
+            ps.setString(5, u.getSurname());
+            ps.setString(6, u.getSex());
+            ps.setString(7, u.getPhotoPath());
+            ps.execute();
+        }
     }
 
 }

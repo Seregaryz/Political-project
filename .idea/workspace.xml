@@ -7,10 +7,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11d6d338-5d68-4098-9edc-de49ab50f816" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/servlets/RegistrationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20190722.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/CommentsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/obj/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlets/AjaxSearchServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/support/DatabaseHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/templates/registration.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ArgumentProject_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ArgumentProject_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArgumentProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ArgumentProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/dao/NewsDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/dao/NewsDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/obj/User$Sex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/obj/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/obj/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/MainPageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/MainPageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/PostOfNewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/PostOfNewsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/ProfileServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/classes/servlets/ProfileServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/main-page-authorized.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/main-page-authorized.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/news-page-authorized.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/news-page-authorized.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/profile.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ArgumentProject_war_exploded/WEB-INF/templates/profile.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/dao/NewsDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/dao/NewsDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/obj/User$Sex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/obj/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/obj/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/MainPageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/MainPageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/PostOfNewsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/PostOfNewsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/ProfileServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ArgumentProject/servlets/ProfileServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/NewsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/NewsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/PostOfNewsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/PostOfNewsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/ProfileRedactionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/ProfileRedactionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/support/ServiceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/support/ServiceHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/main-page-authorized.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/main-page-authorized.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/news-page-authorized.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/news-page-authorized.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/profile.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/profile.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/redaction-profile.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/redaction-profile.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +194,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-20190722.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -166,19 +204,20 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sereg\IdeaProjects\ArgumentProject\web\WEB-INF\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sereg\IdeaProjects\ArgumentProject\web\js" />
       <recent name="C:\Users\sereg\IdeaProjects\ArgumentProject\web" />
       <recent name="C:\Users\sereg\IdeaProjects\ArgumentProject\web\WEB-INF" />
       <recent name="C:\Users\sereg\IdeaProjects\ArgumentProject\img" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sereg\IdeaProjects\ArgumentProject\web\WEB-INF\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -346,7 +385,17 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e628b4e2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e628b4e2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@61d69066" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -372,7 +421,11 @@
       <workItem from="1572081491299" duration="4453000" />
       <workItem from="1572166204808" duration="12733000" />
       <workItem from="1572260063363" duration="1209000" />
-      <workItem from="1572338998463" duration="5419000" />
+      <workItem from="1572338998463" duration="7264000" />
+      <workItem from="1572600058699" duration="594000" />
+      <workItem from="1572773623941" duration="18011000" />
+      <workItem from="1572876331430" duration="9057000" />
+      <workItem from="1572939642755" duration="4145000" />
     </task>
     <task id="LOCAL-00001" summary="Add intermediate progress 24.10.2019">
       <created>1571921412879</created>
@@ -395,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572342186430</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update ProfileRedactionServlet, add RegistrationServlet">
+      <created>1572345359836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572345359836</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,6 +478,7 @@
     <MESSAGE value="Add intermediate progress 24.10.2019" />
     <MESSAGE value="Change FreemarkerHelper.java, add new finctions in servlets" />
     <MESSAGE value="Add ProfileServlet, ProfileRedactionServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ProfileServlet, ProfileRedactionServlet" />
+    <MESSAGE value="update ProfileRedactionServlet, add RegistrationServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="update ProfileRedactionServlet, add RegistrationServlet" />
   </component>
 </project>

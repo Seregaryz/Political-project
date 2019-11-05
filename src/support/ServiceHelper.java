@@ -46,6 +46,7 @@ public class ServiceHelper {
                 }
                 if (cookie.getName().equals("password")) {
                     password = cookie.getValue();
+
                     hasPassCookies = true;
                     request.getSession().setAttribute("password", password);
                 }

@@ -1,11 +1,12 @@
 package dao;
 
 import obj.News;
+import support.DatabaseHelper;
 
-import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class NewsDAO extends DAO {
 
@@ -43,5 +44,28 @@ public class NewsDAO extends DAO {
                         new Date(Long.parseLong(rs.getString("date"))));
             } else return null;
         }
+    }
+
+    public List<News> getByLikePattern(String pattern) {
+        try {
+            Connection conn = DatabaseHelper.getConnection();
+            PreparedStatement ps = conn.prepareStatement(
+                    "select * from news where header like ?"
+            );
+            ps.setString(1, "%" + pattern + "%");
+            ResultSet rs = ps.executeQuery();
+            List<News> newsList = new ArrayList<>();
+            while (rs.next()) {
+                newsList.add(new News(
+                        rs.getInt("id"), rs.getString("header"), rs.getString("text"),
+                        rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))
+                ));
+            }
+            return newsList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
     }
 }

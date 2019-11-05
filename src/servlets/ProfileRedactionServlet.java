@@ -1,16 +1,16 @@
 package servlets;
 
+import com.sun.xml.internal.ws.server.ServerRtException;
 import dao.UserDAO;
 import obj.User;
 import support.FreemarkerHelper;
 import support.ServiceHelper;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -19,6 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebServlet(name = "profileRedaction", urlPatterns = {"/profileRedaction"})
+@MultipartConfig
 public class ProfileRedactionServlet extends HttpServlet {
 
 
@@ -30,6 +31,8 @@ public class ProfileRedactionServlet extends HttpServlet {
         User user = (User) session.getAttribute("current_user");
         try {
             if (user != null) {
+                System.out.println("We are here");
+                System.out.println(user.getPassword());
                 root.put("user", user);
                 FreemarkerHelper.render(req, resp, "redaction-profile.ftl", root);
             } else if (ServiceHelper.isSavedInCookies(req)){
@@ -65,7 +68,19 @@ public class ProfileRedactionServlet extends HttpServlet {
             if(!passMatcher.matches()){
                 resp.sendRedirect("/profileRedaction");
             }
-            if(userDAO.updateUser(user.getId(), password, nickname, name, surname, sex)) {
+            Part p = req.getPart("photo");
+            String localdir = "img";
+            String pathDir = getServletContext().getRealPath("") + File.separator + localdir;
+            File dir = new File(pathDir);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            String[] filename_data = p.getSubmittedFileName().split("\\.");
+            String filename = Math.random() + "." + filename_data[filename_data.length - 1];
+            String fullpath = pathDir + File.separator + filename;
+            p.write(fullpath);
+            String path = "/" + localdir + "/" + filename;
+            if(userDAO.updateUser(user.getId(), password, nickname, name, surname, sex, path)) {
                 User updatedUser = userDAO.getSpecUser(user.getEmail(), password);
                 session.setAttribute("current_user", updatedUser);
             }
