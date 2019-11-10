@@ -28,12 +28,14 @@ public class ProfileServlet extends HttpServlet {
         try {
             if (user != null) {
                 root.put("user", user);
+                root.put("nickname", user.getNickname());
                 FreemarkerHelper.render(req, resp, "profile.ftl", root);
             } else if (ServiceHelper.isSavedInCookies(req)){
                 UserDAO userDAO = new UserDAO();
                 user = userDAO.getSpecUser((String)session.getAttribute("login"), (String)session.getAttribute("password"));
                 session.setAttribute("current_user", user);
                 root.put("user", user);
+                root.put("nickname", user.getNickname());
                 FreemarkerHelper.render(req, resp, "profile.ftl", root);
             } else {
                 String idOfUser = req.getParameter("id");

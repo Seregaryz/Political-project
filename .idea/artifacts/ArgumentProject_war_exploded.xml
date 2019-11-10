@@ -11,7 +11,7 @@
           <element id="library" level="project" name="freemarker" />
           <element id="library" level="project" name="postgresql-9.3-1101.jdbc41" />
           <element id="library" level="project" name="spring-core-5.2.0.RELEASE" />
-          <element id="library" level="project" name="json-20190722" />
+          <element id="library" level="project" name="json-20140107" />
         </element>
       </element>
     </root>

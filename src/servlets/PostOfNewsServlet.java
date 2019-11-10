@@ -36,7 +36,7 @@ public class PostOfNewsServlet extends HttpServlet {
             News news = newsDAO.getSpecNews(req.getParameter("id"));
             root.put("news", news);
             CommentsDAO commentsDAO = new CommentsDAO();
-            ArrayList<Comment> comments = commentsDAO.getComments();
+            ArrayList<Comment> comments = commentsDAO.getComments(req.getParameter("id"));
             root.put("comments", comments);
             root.put("path", req.getParameter("id"));
             resp.setContentType("text/html");
@@ -64,6 +64,9 @@ public class PostOfNewsServlet extends HttpServlet {
         FreeMarkerConfigurator.getInstance(this);
         Map<String, Object> root = new HashMap<>();
         HttpSession session = req.getSession();
+        if(req.getParameter("text") == null){
+            resp.sendRedirect("/post");
+        }
         String postId = req.getParameter("id");
         String text = req.getParameter("text");
         Date date = new Date(System.currentTimeMillis());
@@ -76,7 +79,7 @@ public class PostOfNewsServlet extends HttpServlet {
             NewsDAO newsDAO = new NewsDAO();
             News news = newsDAO.getSpecNews(postId);
             root.put("news", news);
-            ArrayList<Comment> comments = commentsDAO.getComments();
+            ArrayList<Comment> comments = commentsDAO.getComments(postId);
             root.put("comments", comments);
             root.put("path", req.getParameter("id"));
             resp.setContentType("text/html");

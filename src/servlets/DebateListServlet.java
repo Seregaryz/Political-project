@@ -31,9 +31,9 @@ public class DebateListServlet extends HttpServlet {
             root.put("debates", debatesList);
             if (user != null) {
                 root.put("nickname", user.getNickname());
-                FreemarkerHelper.render(req, resp, "debates-list-authorized.ftl", root);
+                FreemarkerHelper.render(req, resp, "debates-list.ftl", root);
             } else {
-                FreemarkerHelper.render(req, resp, "debates-list-non-authorized.ftl", root);
+                FreemarkerHelper.render(req, resp, "debates-list.ftl", root);
             }
 
         } catch  (SQLException | ClassNotFoundException e) {

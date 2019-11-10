@@ -6,14 +6,15 @@ import java.util.Date;
 public class News {
 
     private int id;
-    private String header, text;
+    private String header, text, preview;
     private String img;
     private Date date;
 
-    public News(int id, String header, String text, String imgPath, Date date) {
+    public News(int id, String header, String text, String preview, String imgPath, Date date) {
         this.id = id;
         this.header = header;
         this.text = text;
+        this.preview = preview;
         img = imgPath;
         this.date = date;
     }
@@ -56,6 +57,14 @@ public class News {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getPreview() {
+        return preview;
+    }
+
+    public void setPreview(String preview) {
+        this.preview = preview;
     }
 
     @Override

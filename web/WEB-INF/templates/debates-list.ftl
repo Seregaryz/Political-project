@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/StyleForMain.css">
+    <link rel="stylesheet" href="../css/extra-styles.css">
     <style>
 
         .borderImg {
@@ -68,43 +70,41 @@
 </#macro>
 
 <#macro content>
+
     <div class="container container-post">
-        <div class="row">
-            <div class="col">
-                <h2 class="mb-4">NEWS</h2>
-            </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-4">Debates</h2>
         </div>
-        <#list  newsList as n>
-            <div class="row justify-content-center mt-2">
-                <div class="col">
-                    <div class="card card-post h-auto">
-                        <form action="/post" method="get">
-                            <div class="media media-author">
-                                <img src="${n.getImgPath()}"
-                                     class="mr-3 img-fluid borderImg" style="width: 300px" alt="Пользователь">
-                                <div class="media-body media-author-body">
-                                    <input name="id" value="${n.getId()}" type="hidden">
-                                    <button type="submit" class="btn btn-link text-dark"
-                                            style="font-size: 22px">${n.getHeader()}
-                                    </button>
-                                    <p>${n.getDate()}</p>
-                                    <h4>${n.getPreview()}</h4>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col">
+            <#list debates as d>
+                <div class="card card-post">
+                    <div class="media media-author">
+                        <div class="media-body media-author-body">
+                            <h5 class="mt-0">${d.getTopic()}</h5>
+                            <h5 class="my-3">Creator: </h5>
+                            <div class="d-flex mt-4 p-1">
+                                <img class="img-circle" src="${d.getCreator().getPhotoPath()}"
+                                     style="width: 50px; height: 50px">
+                                <div class="ml-4 my-auto">
+                                    <h5>${d.getCreator().getNickname()}</h5>
                                 </div>
                             </div>
-                        </form>
-                        <div class="card-like-button-wrap">
-                            <button class="card-like-button">
-                                <img src="/img/heart.png" alt="Нравится" class="card-like-icon">
-                                <b>666</b>
-                            </button>
+                            <form>
+                                <input name="id" value="${d.getId()}" type="hidden">
+                                <button type="submit" class="btn btn-dark mt-3"
+                                        style="font-size: 22px">Join
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </#list>
+            </#list>
+        </div>
     </div>
+    <p></p>
 </#macro>
 
 <@main/>
-
-

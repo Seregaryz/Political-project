@@ -11,43 +11,32 @@ import java.util.List;
 public class NewsDAO extends DAO {
 
     public ArrayList<News> getNews() throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/political_project_db",
-                "postgres",
-                "postgres"
-        );
+        Connection conn = DatabaseHelper.getConnection();
         Statement stmnt = conn.createStatement();
         ResultSet rs = stmnt.executeQuery("SELECT * FROM public.news;");
         ArrayList<News> result = new ArrayList<>();
         while (rs.next()) {
             result.add(new News(rs.getInt("id"), rs.getString("header"),
-                    rs.getString("text"), rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))));
+                    rs.getString("text"), "Preview", rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))));
         }
         return result;
     }
 
     public News getSpecNews(String idOfNews) throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/political_project_db",
-                "postgres",
-                "postgres"
-        );
+        Connection conn = DatabaseHelper.getConnection();
         String sql = "SELECT * FROM news WHERE id = ?;";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, Integer.parseInt(idOfNews));
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new News(rs.getInt("id"), rs.getString("header"),
-                        rs.getString("text"), rs.getString("img"),
+                        rs.getString("text"), "Preview", rs.getString("img"),
                         new Date(Long.parseLong(rs.getString("date"))));
             } else return null;
         }
     }
 
-    public List<News> getByLikePattern(String pattern) {
-        try {
+    public List<News> getByLikePattern(String pattern) throws SQLException {
             Connection conn = DatabaseHelper.getConnection();
             PreparedStatement ps = conn.prepareStatement(
                     "select * from news where header like ?"
@@ -57,15 +46,11 @@ public class NewsDAO extends DAO {
             List<News> newsList = new ArrayList<>();
             while (rs.next()) {
                 newsList.add(new News(
-                        rs.getInt("id"), rs.getString("header"), rs.getString("text"),
+                        rs.getInt("id"), rs.getString("header"),
+                        rs.getString("text"), "Preview",
                         rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))
                 ));
             }
             return newsList;
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-        return null;
     }
 }

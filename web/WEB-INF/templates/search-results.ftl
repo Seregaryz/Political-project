@@ -71,7 +71,7 @@
     <div class="container container-post">
         <div class="row">
             <div class="col">
-                <h2 class="mb-4">NEWS</h2>
+                <h2 class="mb-4">Results of searching</h2>
             </div>
         </div>
         <#list  newsList as n>
@@ -106,5 +106,4 @@
 </#macro>
 
 <@main/>
-
 

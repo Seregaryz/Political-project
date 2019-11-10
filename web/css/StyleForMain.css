@@ -1,0 +1,123 @@
+.mx-10 {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.mt-7 {
+    margin-top: 7%;
+}
+
+.outline-none:active {
+    outline: none;
+}
+
+.px-10 {
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
+.border-black {
+    border-color: #1b1e21;
+}
+
+.font-20px {
+    font-size: 20px;
+}
+
+.width-250px {
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.font-18px {
+     font-size: 18px;
+}
+
+.font-16px {
+    font-size: 16px;
+}
+
+.font-14px {
+    font-size: 14px;
+}
+
+.font-30px {
+    font-size: 30px;
+}
+
+.border-radius-0 {
+    border-radius: 0px;
+}
+
+.height-sp {
+    height: 92%;
+
+}
+
+.width-15 {
+    width: 15%;
+}
+
+.ml-40 {
+    margin-left: 40%;
+}
+
+.mt-7 {
+    margin-top: 7%;
+}
+
+.w-800px {
+    width: 800px;
+}
+
+.w-450px {
+    width: 450px;
+}
+
+.w-400px {
+    width: 400px;
+}
+
+.w-200px {
+    width: 200px;
+    max-width: 201px;
+}
+
+
+.h-100vh {
+    min-height: Calc(100vh - 58px);
+}
+
+.w-100vh {
+    max-width: 100vh;
+}
+
+.max-w-500 {
+    max-width: 500px;
+}
+
+.p-height-25 {
+    height: 25px;
+}
+
+.shadow {
+    box-shadow: 16px 33px 85px 0px rgba(0,0,0,0.75);
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+
+.forPages {
+
+    display: none;
+}
+
+.forPages:target {
+
+    display: block;
+}
+
+.forPages[id*=t]:target ~ #one

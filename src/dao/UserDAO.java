@@ -1,6 +1,7 @@
 package dao;
 
 import obj.User;
+import support.DatabaseHelper;
 import support.ServiceHelper;
 
 import java.sql.*;
@@ -82,12 +83,7 @@ public class UserDAO extends DAO{
     }
 
     public boolean updateUser(int idOfUser, String pass, String nickname, String name, String surname, String sex, String photoPath) throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/political_project_db",
-                "postgres",
-                "postgres"
-        );
+        Connection conn = DatabaseHelper.getConnection();
         String codPass = ServiceHelper.md5Custom(pass);
         String sql = "UPDATE users SET password = ?, nickname = ?, name = ?, surname = ?, sex = ?, image_path = ? WHERE id = ?";
         try(PreparedStatement ps = conn.prepareStatement(sql)){
@@ -104,12 +100,7 @@ public class UserDAO extends DAO{
     }
 
     public void setUser(User u) throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/political_project_db",
-                "postgres",
-                "postgres"
-        );
+        Connection conn = DatabaseHelper.getConnection();
         String codPass = ServiceHelper.md5Custom(u.getPassword());
         String sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, nextval('count'),?);";
         try(PreparedStatement ps = conn.prepareStatement(sql)){

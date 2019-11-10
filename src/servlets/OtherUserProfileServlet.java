@@ -3,6 +3,7 @@ package servlets;
 import dao.UserDAO;
 import obj.User;
 import support.FreemarkerHelper;
+import support.ServiceHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,12 +29,18 @@ public class OtherUserProfileServlet extends HttpServlet {
             UserDAO userDAO = new UserDAO();
             String idOfUser = req.getParameter("id");
             User otherUser = userDAO.getSpecUserFromId(idOfUser);
-            root.put("user", otherUser);
+            root.put("otherUser", otherUser);
             if (user != null) {
                 root.put("nickname", user.getNickname());
-                FreemarkerHelper.render(req, resp, "profile-of-different-user.ftl", root);
+                FreemarkerHelper.render(req, resp, "profile-other-user.ftl", root);
+            } else if (ServiceHelper.isSavedInCookies(req)) {
+                user = userDAO.getSpecUser((String) session.getAttribute("login"), (String) session.getAttribute("password"));
+                session.setAttribute("current_user", user);
+                root.put("user", user);
+                root.put("nickname", user.getNickname());
+                FreemarkerHelper.render(req, resp, "profile-other-user.ftl", root);
             } else {
-                FreemarkerHelper.render(req, resp, "profile-of-different-user-non-authorized.ftl", root);
+                FreemarkerHelper.render(req, resp, "profile-other-user-non-authorized.ftl", root);
             }
         }  catch  (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

@@ -31,15 +31,16 @@ public class ProfileRedactionServlet extends HttpServlet {
         User user = (User) session.getAttribute("current_user");
         try {
             if (user != null) {
-                System.out.println("We are here");
                 System.out.println(user.getPassword());
                 root.put("user", user);
+                root.put("nickname", user.getNickname());
                 FreemarkerHelper.render(req, resp, "redaction-profile.ftl", root);
             } else if (ServiceHelper.isSavedInCookies(req)){
                 UserDAO userDAO = new UserDAO();
                 user = userDAO.getSpecUser((String)session.getAttribute("login"), (String)session.getAttribute("password"));
                 session.setAttribute("current_user", user);
                 root.put("user", user);
+                root.put("nickname", user.getNickname());
                 FreemarkerHelper.render(req, resp, "redaction-profile.ftl", root);
             } else resp.sendRedirect("/login");
         } catch  (SQLException | ClassNotFoundException e) {
@@ -60,31 +61,37 @@ public class ProfileRedactionServlet extends HttpServlet {
         User user = (User) session.getAttribute("current_user");
         UserDAO userDAO = new UserDAO();
         try {
-            if(!userDAO.isNicknameFree(nickname)){
+            if(userDAO.isNicknameFree(nickname) && !nickname.equals(user.getNickname())){
+                System.out.println("bad");
                 resp.sendRedirect("/profileRedaction");
+            } else {
+
+                Pattern passwordPattern = Pattern.compile("(?=.*[a-z])(?=.*[A-Z]).{8,32}");
+                Matcher passMatcher = passwordPattern.matcher(password);
+
+                if (!passMatcher.matches()) {
+                    System.out.println("wery bad!");
+                    resp.sendRedirect("/profileRedaction");
+                } else {
+                    Part p = req.getPart("photo");
+                    String localdir = "img";
+                    String pathDir = getServletContext().getRealPath("") + File.separator + localdir;
+                    File dir = new File(pathDir);
+                    if (!dir.exists()) {
+                        dir.mkdir();
+                    }
+                    String[] filename_data = p.getSubmittedFileName().split("\\.");
+                    String filename = Math.random() + "." + filename_data[filename_data.length - 1];
+                    String fullpath = pathDir + File.separator + filename;
+                    p.write(fullpath);
+                    String path = "/" + localdir + "/" + filename;
+                    if (userDAO.updateUser(user.getId(), password, nickname, name, surname, sex, path)) {
+                        User updatedUser = userDAO.getSpecUser(user.getEmail(), password);
+                        session.setAttribute("current_user", updatedUser);
+                    }
+                    resp.sendRedirect("/profile");
+                }
             }
-            Pattern passwordPattern = Pattern.compile("(?=.*[a-z])(?=.*[A-Z]).{8,32}");
-            Matcher passMatcher = passwordPattern.matcher(password);
-            if(!passMatcher.matches()){
-                resp.sendRedirect("/profileRedaction");
-            }
-            Part p = req.getPart("photo");
-            String localdir = "img";
-            String pathDir = getServletContext().getRealPath("") + File.separator + localdir;
-            File dir = new File(pathDir);
-            if (!dir.exists()) {
-                dir.mkdir();
-            }
-            String[] filename_data = p.getSubmittedFileName().split("\\.");
-            String filename = Math.random() + "." + filename_data[filename_data.length - 1];
-            String fullpath = pathDir + File.separator + filename;
-            p.write(fullpath);
-            String path = "/" + localdir + "/" + filename;
-            if(userDAO.updateUser(user.getId(), password, nickname, name, surname, sex, path)) {
-                User updatedUser = userDAO.getSpecUser(user.getEmail(), password);
-                session.setAttribute("current_user", updatedUser);
-            }
-            resp.sendRedirect("/success");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

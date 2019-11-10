@@ -1,4 +1,4 @@
-<#include "base-with-authorization.ftl"/>
+<#include "base-non-authorized.ftl"/>
 
 <#macro title>${otherUser.getNickname()}</#macro>
 
@@ -94,12 +94,12 @@
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div class="container">
                         <div class="row user-profile-row">
-                            <div class="col-auto user-profile-col">
+                            <div class="col user-profile-col">
                                 <P></P>
                                 <img src="${otherUser.getPhotoPath()}" alt="Фотография" width="200" height="255"
                                      class="img-fluid user-profile-photo mb-3">
                             </div>
-                            <div class="col mt-3 ml-5">
+                            <div class="col">
                                 <h2>Profile</h2>
                                 <div class="form-group">
                                     <p>Name</p>

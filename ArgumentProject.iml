@@ -23,6 +23,7 @@
     <orderEntry type="library" name="postgresql-9.3-1101.jdbc41" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="spring-core-5.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="json-20190722" level="project" />
+    <orderEntry type="library" name="gson-2.8.2-javadoc" level="project" />
+    <orderEntry type="library" name="json-20140107" level="project" />
   </component>
 </module>
