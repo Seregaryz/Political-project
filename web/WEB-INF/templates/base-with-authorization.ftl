@@ -18,7 +18,7 @@
     </head>
     <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a href="/" class="navbar-brand">POLITIS</a>
+        <a href="/newsList" class="navbar-brand">POLITIS</a>
         <div class="collapse navbar-collapse text-white" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/debatesList">Debates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Archive</a>
+                    <a class="nav-link" href="/addpost">Add news</a>
                 </li>
             </ul>
 

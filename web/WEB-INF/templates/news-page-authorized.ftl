@@ -81,10 +81,10 @@
                         <div class="card card-post mt-3">
                             <div class="media media-author">
                                 <div class="media-body media-author-body">
-                                    <h5 class="mt-1 text-center">${news.getHeader()}</h5>
+                                    <h5 class="mt-1 text-center mb-4">${news.getHeader()}</h5>
                                     <img src="${news.getImgPath()}" class="w-100">
                                     <p class="text-center mt-2 font-18px">${news.getDate()}</p>
-                                    <p class="my-3 font-18px">${news.getText()}</p>
+                                    <p class="my-3 font-18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${news.getText()}</p>
                                 </div>
                             </div>
                         </div>

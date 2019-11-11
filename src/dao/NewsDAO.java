@@ -17,7 +17,7 @@ public class NewsDAO extends DAO {
         ArrayList<News> result = new ArrayList<>();
         while (rs.next()) {
             result.add(new News(rs.getInt("id"), rs.getString("header"),
-                    rs.getString("text"), "Preview", rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))));
+                    rs.getString("text"), rs.getString("preview"), rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))));
         }
         return result;
     }
@@ -30,7 +30,7 @@ public class NewsDAO extends DAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new News(rs.getInt("id"), rs.getString("header"),
-                        rs.getString("text"), "Preview", rs.getString("img"),
+                        rs.getString("text"), rs.getString("preview"), rs.getString("img"),
                         new Date(Long.parseLong(rs.getString("date"))));
             } else return null;
         }
@@ -47,10 +47,23 @@ public class NewsDAO extends DAO {
             while (rs.next()) {
                 newsList.add(new News(
                         rs.getInt("id"), rs.getString("header"),
-                        rs.getString("text"), "Preview",
+                        rs.getString("text"), rs.getString("preview"),
                         rs.getString("img"), new Date(Long.parseLong(rs.getString("date")))
                 ));
             }
             return newsList;
+    }
+
+    public void setNews(News n) throws ClassNotFoundException, SQLException {
+        Connection conn = DatabaseHelper.getConnection();
+        String sql = "INSERT INTO news VALUES (?, ?, ?, ?, nextval('news_id_seq'),?);";
+        try(PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1, n.getHeader());
+            ps.setString(2, new Date(System.currentTimeMillis()).getTime() + "");
+            ps.setString(3, n.getImgPath());
+            ps.setString(4, n.getText());
+            ps.setString(5, n.getPreview());
+            ps.execute();
+        }
     }
 }

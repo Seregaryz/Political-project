@@ -55,7 +55,7 @@ public class RegistrationServlet extends HttpServlet {
         String sex = req.getParameter("sex");
 
         UserDAO userDAO = new UserDAO();
-        String user = (String) session.getAttribute("current_user");
+        User user = (User) session.getAttribute("current_user");
 
         if (user != null) {
             resp.sendRedirect("/profile");

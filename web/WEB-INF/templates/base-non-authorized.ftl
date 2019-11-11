@@ -17,9 +17,7 @@
     </head>
     <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-brand" >
-            POLITIS
-        </div>
+        <a href="/newsList" class="navbar-brand">POLITIS</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">

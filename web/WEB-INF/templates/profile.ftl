@@ -46,29 +46,6 @@
             border: 0;
         }
 
-        .card-like-icon {
-            max-width: 24px;
-            height: auto;
-        }
-
-        .media-author {
-            padding: 16px 0;
-        }
-
-        .media-author-photo {
-            max-width: 80px;
-        }
-
-        .media-author-body {
-            color: black;
-            font-size: small;
-        }
-
-        .card-text {
-            color: black;
-            font-size: 14px;
-        }
-
         .card a:hover {
             text-decoration: none;
         }
@@ -98,6 +75,9 @@
                                 <P></P>
                                 <img src="${user.getPhotoPath()}" alt="Фотография" width="200" height="255"
                                      class="img-fluid user-profile-photo mb-3">
+                                <div class="mt-5">
+                                    <a href="/addpost" class="btn btn-dark">Add news</a>
+                                </div>
                             </div>
                             <div class="col mt-3 ml-5">
                                 <h2>Profile</h2>

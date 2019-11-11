@@ -1,7 +1,9 @@
 package servlets;
 
 import dao.DebatesDAO;
+import dao.MessagesDAO;
 import obj.Debates;
+import obj.Message;
 import obj.User;
 import support.FreemarkerHelper;
 
@@ -12,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DebateServlet extends HttpServlet {
@@ -28,11 +32,12 @@ public class DebateServlet extends HttpServlet {
             root.put("debates", debates);
             if (user != null) {
                 root.put("nickname", user.getNickname());
-                if (debatesDAO.isParticipant(user.getId() + "", debates.getId() + "")) {
-                    FreemarkerHelper.render(req, resp, "participant-debates-page-authorized.ftl", root);
+                if (debatesDAO.isParticipant(user.getId() + "",
+                        debatesDAO.getSpecDebates(req.getParameter("id")).getId() + "")) {
+                    FreemarkerHelper.render(req, resp, "participant-debates-page.ftl", root);
                 } else FreemarkerHelper.render(req, resp, "debates-page-authorized.ftl", root);
             } else {
-                FreemarkerHelper.render(req, resp, "debates-page-non-authorized.ftl", root);
+                FreemarkerHelper.render(req, resp, "debates-page-authorized.ftl", root);
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -47,11 +52,15 @@ public class DebateServlet extends HttpServlet {
         try {
             DebatesDAO debatesDAO = new DebatesDAO();
             Debates debates = debatesDAO.getSpecDebates(req.getParameter("id"));
+            root.put("debates", debates);
+            MessagesDAO messagesDAO = new MessagesDAO();
+            List<Message> messages = messagesDAO.getMessages(req.getParameter("id"));
+            root.put("messages", messages);
             if (user != null) {
                 root.put("nickname", user.getNickname());
                 if (debatesDAO.roomIsAvailable(req.getParameter("id"))) {
-                    debatesDAO.enrollUser(req.getParameter("id"), debates.getId() + "");
-                    FreemarkerHelper.render(req, resp, "participant-debates-page-authorized.ftl", root);
+                    debatesDAO.enrollUser(req.getParameter("idUser"), req.getParameter("id"));
+                    FreemarkerHelper.render(req, resp, "participant-debates-page.ftl", root);
                 } else {
                     FreemarkerHelper.render(req, resp, "debates-page-authorized.ftl", root);
                 }

@@ -87,8 +87,8 @@
                                     <button type="submit" class="btn btn-link text-dark"
                                             style="font-size: 22px">${n.getHeader()}
                                     </button>
-                                    <p>${n.getDate()}</p>
-                                    <h4>${n.getPreview()}</h4>
+                                    <p class="ml-3" style="font-size: 16px">${n.getDate()}</p>
+                                    <p style="font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${n.getPreview()}</p>
                                 </div>
                             </div>
                         </form>

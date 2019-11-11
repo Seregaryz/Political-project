@@ -27,36 +27,31 @@ public class DebatesDAO extends DAO {
 
     public boolean roomIsAvailable(String idOfDebates) throws ClassNotFoundException, SQLException{
         Connection conn = DatabaseHelper.getConnection();
-        String sql = "SELECT * FROM participants WHERE debates_id = ?;";
+        String sql = "SELECT * FROM debates WHERE id = ?;";
         try(PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, idOfDebates);
+            ps.setInt(1, Integer.parseInt(idOfDebates));
             ResultSet rs = ps.executeQuery();
-            int count = 0;
-            while (rs.next()) {
-                count++;
-            }
-            if (count <= 1) {
-                return true;
-            } else return false;
+            return rs.getInt("second_debater_id") != 0;
         }
     }
 
     public void enrollUser(String idOfUser, String idOfDebates) throws ClassNotFoundException, SQLException {
         Connection conn = DatabaseHelper.getConnection();
-        String sql = "INSERT INTO participants VALUES  (?, ?);";
+        String sql = "UPDATE debates SET second_debater_id = ? WHERE id = ?;";
         try(PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, idOfUser);
-            ps.setString(2, idOfDebates);
-            ResultSet rs = ps.executeQuery();
+            ps.setInt(1, Integer.parseInt(idOfUser));
+            ps.setInt(2, Integer.parseInt(idOfDebates));
+            ps.execute();
         }
     }
 
     public boolean isParticipant(String idOfUser, String idOfDebates) throws ClassNotFoundException, SQLException {
         Connection conn = DatabaseHelper.getConnection();
-        String sql = "SELECT * FROM participants WHERE participant_id = ? and debates_id = ?;";
+        String sql = "SELECT * FROM debates WHERE second_debater_id = ? or debates.creator_id = ? and id = ?;";
         try(PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, idOfUser);
-            ps.setString(2, idOfDebates);
+            ps.setInt(1, Integer.parseInt(idOfUser));
+            ps.setInt(2, Integer.parseInt(idOfUser));
+            ps.setInt(3, Integer.parseInt(idOfDebates));
             ResultSet rs = ps.executeQuery();
             return rs.next();
         }
@@ -68,7 +63,7 @@ public class DebatesDAO extends DAO {
         Statement stmnt = conn.createStatement();
         UserDAO userDAO = new UserDAO();
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, idOfDebates);
+            ps.setInt(1, Integer.parseInt(idOfDebates));
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new Debates(rs.getInt("id"), rs.getString("topic"),
